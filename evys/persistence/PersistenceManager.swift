@@ -12,6 +12,8 @@ class PersistenceManager {
     
     static let TOKEN_VALUE = "TOKEN"
     
+    static let PHONE_VALUE = "PHONE"
+    
     static let sharedInstance: PersistenceManager = {
         let instance = PersistenceManager()
         return instance
@@ -30,6 +32,15 @@ class PersistenceManager {
     
     public func getToken() -> String?{
         return self.preferences.string(forKey: PersistenceManager.TOKEN_VALUE)
+    }
+    
+    public func savePhone(phone: String){
+        self.preferences.set(phone, forKey: PersistenceManager.PHONE_VALUE)
+        preferences.synchronize()
+    }
+    
+    public func getPhone() -> String? {
+        return self.preferences.string(forKey: PersistenceManager.PHONE_VALUE)
     }
 
 }

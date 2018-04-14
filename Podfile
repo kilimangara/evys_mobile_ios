@@ -7,6 +7,7 @@ target 'evys' do
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
     pod 'Alamofire', '~> 4.7'
+    pod 'CircleProgressBar', '~> 0.32’
 
   # Pods for evys
 end

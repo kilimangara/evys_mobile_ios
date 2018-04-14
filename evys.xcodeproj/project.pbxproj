@@ -16,6 +16,12 @@
 		3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7149D20819BC300BF1A3F /* PersistenceManager.swift */; };
 		3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A12081A03500BF1A3F /* APIProvider.swift */; };
 		3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A32081AFC900BF1A3F /* AuthModel.swift */; };
+		3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A72082243000BF1A3F /* MainViewController.swift */; };
+		3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A92082252800BF1A3F /* LoginViewController.swift */; };
+		3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714AC20822F2C00BF1A3F /* CodeViewController.swift */; };
+		3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */; };
+		3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714B02082ABEC00BF1A3F /* Course.swift */; };
+		3AD714B42082B04E00BF1A3F /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		3AD7149D20819BC300BF1A3F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		3AD714A12081A03500BF1A3F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		3AD714A32081AFC900BF1A3F /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		3AD714A72082243000BF1A3F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3AD714A92082252800BF1A3F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3AD714AC20822F2C00BF1A3F /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		3AD714B02082ABEC00BF1A3F /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		3E1773824D74F1A2A53E00BC /* Pods-evys.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.release.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.release.xcconfig"; sourceTree = "<group>"; };
 		A0E806F19B4824ED24853AE1 /* Pods-evys.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.debug.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +79,9 @@
 		3AD7148720816A2700BF1A3F /* evys */ = {
 			isa = PBXGroup;
 			children = (
+				3AD714B22082B02700BF1A3F /* tableViews */,
+				3AD714AB208228C100BF1A3F /* viewmodels */,
+				3AD714A6208223BF00BF1A3F /* ViewControllers */,
 				3AD714A020819FF000BF1A3F /* API */,
 				3AD7149F20819FE600BF1A3F /* models */,
 				3AD7149C20819B9000BF1A3F /* persistence */,
@@ -92,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD714A32081AFC900BF1A3F /* AuthModel.swift */,
+				3AD714B02082ABEC00BF1A3F /* Course.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -102,6 +118,32 @@
 				3AD714A12081A03500BF1A3F /* APIProvider.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		3AD714A6208223BF00BF1A3F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AD714A72082243000BF1A3F /* MainViewController.swift */,
+				3AD714A92082252800BF1A3F /* LoginViewController.swift */,
+				3AD714AC20822F2C00BF1A3F /* CodeViewController.swift */,
+				3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3AD714AB208228C100BF1A3F /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		3AD714B22082B02700BF1A3F /* tableViews */ = {
+			isa = PBXGroup;
+			children = (
+				3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */,
+			);
+			path = tableViews;
 			sourceTree = "<group>";
 		};
 		6E7088CA0E8ACE57AF051FB7 /* Frameworks */ = {
@@ -233,12 +275,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-evys/Pods-evys-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CircleProgressBar/CircleProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -254,11 +298,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
 				3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */,
+				3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */,
 				3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */,
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
+				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
+				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
 				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,
+				3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */,
+				3AD714B42082B04E00BF1A3F /* CourseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

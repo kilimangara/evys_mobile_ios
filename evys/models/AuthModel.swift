@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AuthModel {
+class AuthModel: Codable {
     
     let is_new: Bool
     let id: Int
@@ -19,12 +19,5 @@ class AuthModel {
         self.id = id
         self.token = token
         PersistenceManager.sharedInstance.saveToken(token: token)
-    }
-    
-    init(dict: Dictionary<String, AnyObject>){
-        self.is_new = dict["is_new"]
-        self.id = dict["id"]
-        self.token = dict["token"]
-        PersistenceManager.sharedInstance.saveToken(token: self.token)
     }
 }
