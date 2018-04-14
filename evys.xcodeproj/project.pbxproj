@@ -15,6 +15,7 @@
 		3AD7149B20816D2700BF1A3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7149A20816D2700BF1A3F /* Assets.xcassets */; };
 		3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7149D20819BC300BF1A3F /* PersistenceManager.swift */; };
 		3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A12081A03500BF1A3F /* APIProvider.swift */; };
+		3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714A32081AFC900BF1A3F /* AuthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3AD7149A20816D2700BF1A3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AD7149D20819BC300BF1A3F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		3AD714A12081A03500BF1A3F /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		3AD714A32081AFC900BF1A3F /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		3E1773824D74F1A2A53E00BC /* Pods-evys.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.release.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.release.xcconfig"; sourceTree = "<group>"; };
 		A0E806F19B4824ED24853AE1 /* Pods-evys.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.debug.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 		3AD7149F20819FE600BF1A3F /* models */ = {
 			isa = PBXGroup;
 			children = (
+				3AD714A32081AFC900BF1A3F /* AuthModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -229,11 +232,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-evys/Pods-evys-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -253,6 +258,7 @@
 				3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */,
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
+				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
