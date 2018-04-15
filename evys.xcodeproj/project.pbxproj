@@ -22,6 +22,7 @@
 		3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */; };
 		3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714B02082ABEC00BF1A3F /* Course.swift */; };
 		3AD714B42082B04E00BF1A3F /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */; };
+		3AD714B62082B5F000BF1A3F /* CoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD714B52082B5F000BF1A3F /* CoursesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		3AD714B02082ABEC00BF1A3F /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
+		3AD714B52082B5F000BF1A3F /* CoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewModel.swift; sourceTree = "<group>"; };
 		3E1773824D74F1A2A53E00BC /* Pods-evys.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.release.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.release.xcconfig"; sourceTree = "<group>"; };
 		A0E806F19B4824ED24853AE1 /* Pods-evys.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-evys.debug.xcconfig"; path = "Pods/Target Support Files/Pods-evys/Pods-evys.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 		3AD714AB208228C100BF1A3F /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				3AD714B52082B5F000BF1A3F /* CoursesViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -275,14 +278,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-evys/Pods-evys-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CircleProgressBar/CircleProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/LinearProgressBar/LinearProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -307,6 +310,7 @@
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
 				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,
+				3AD714B62082B5F000BF1A3F /* CoursesViewModel.swift in Sources */,
 				3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */,
 				3AD714B42082B04E00BF1A3F /* CourseTableViewCell.swift in Sources */,
 			);

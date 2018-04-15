@@ -72,14 +72,18 @@ class APIProvider {
     
     public func getSubjects() -> Observable<[Course]> {
         let url = URL(string: self.BASE_URL + "student/courses")
+        guard let unwrappedToken = self.token
+            else {return Observable.empty()}
         let headers = [
-            "Authorization": "Student " + self.token!
+            "Authorization": "Student " + unwrappedToken
         ]
+        print(headers)
         return Observable.create({ observer in
             Alamofire.request(url!, method: .get, headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     let result = response.result
+                    print(result)
                     var courses = [Course]()
                     if let dict = result.value as? [String: AnyObject] {
                         guard let innerArr = dict["data"] as? [[String: AnyObject]]

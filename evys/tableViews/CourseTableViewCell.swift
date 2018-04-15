@@ -7,21 +7,11 @@
 //
 
 import UIKit
-import CircleProgressBar
+import LinearProgressBar
 
-class CourseTableViewCell: UITableViewCell {
+class CourseTableViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var linearProgressBarView: LinearProgressBar!
     @IBOutlet weak var subjectNameLabel: UILabel!
-    @IBOutlet weak var progressBarView: CircleProgressBar!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

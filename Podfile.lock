@@ -1,22 +1,22 @@
 PODS:
   - Alamofire (4.7.1)
-  - CircleProgressBar (0.32)
+  - LinearProgressBar (1.0.1)
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - CircleProgressBar (~> 0.32)
+  - LinearProgressBar
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
-  CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
+  LinearProgressBar: f6a74dbabed229dbb1a7978089e2e4317a3a0ee0
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
 
-PODFILE CHECKSUM: 68c60a9d9e0ea5695f7b620ceb0df7afcc67a091
+PODFILE CHECKSUM: 486b9cd640c1e31c60bf89115ff8a3e69f98b8cf
 
 COCOAPODS: 1.3.1

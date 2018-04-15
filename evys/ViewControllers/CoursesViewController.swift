@@ -10,13 +10,42 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class CoursesViewController: UITableViewController {
-
-    @IBOutlet var courseTableView: UITableView!
+class CoursesViewController: UIViewController {
+    
+    @IBOutlet weak var coursesCollectionView: UICollectionView!
+    var coursesViewModel : CoursesViewModel?
+    
+    let disposables = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        coursesViewModel = CoursesViewModel()
+        if let viewModel = coursesViewModel {
+            viewModel.data.drive(coursesCollectionView.rx.items(cellIdentifier: "courseCell")) {
+                _, course, cell in
+                if let courseCell = cell as? CourseTableViewCell{
+                    courseCell.subjectNameLabel.text = course.subjectName
+                    courseCell.contentView.layer.cornerRadius = 4
+                    courseCell.contentView.layer.borderWidth = 1
+                    courseCell.contentView.layer.borderColor = UIColor.clear.cgColor
+                    courseCell.contentView.layer.masksToBounds = false
+                    courseCell.layer.shadowColor = UIColor.gray.cgColor
+                    courseCell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+                    courseCell.layer.shadowRadius = 4.0
+                    courseCell.layer.shadowOpacity = 1.0
+                    courseCell.layer.masksToBounds = false
+                    courseCell.layer.shadowPath = UIBezierPath(roundedRect: courseCell.bounds,
+                                                               cornerRadius: courseCell.contentView.layer.cornerRadius).cgPath
+                }
+            }.disposed(by: self.disposables)
+        }
+        
+        coursesCollectionView.rx.modelSelected(Course.self).subscribe(onNext: {
+            course in
+            print(course.subjectName)
+        }).disposed(by: self.disposables)
+        
         // Do any additional setup after loading the view.
     }
 
