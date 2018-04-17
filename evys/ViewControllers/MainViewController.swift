@@ -16,12 +16,6 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            if let token = PersistenceManager.sharedInstance.getToken() {
-                    APIProvider.sharedInstance.initProvider(token: token)
-                    performSegue(withIdentifier: "mainAppSegue", sender: self)
-                } else {
-                    performSegue(withIdentifier: "loginSegue", sender: self)
-                }
     }
 
     override func didReceiveMemoryWarning() {

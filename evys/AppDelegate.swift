@@ -16,8 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+    
+        if let token = PersistenceManager.sharedInstance.getToken() {
+           APIProvider.sharedInstance.initProvider(token: token)
+           let tabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+           self.window?.rootViewController = tabBarVC
+        } else {
+           let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+           self.window?.rootViewController = loginVC
+        }
         UITabBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        self.window?.makeKeyAndVisible()
         return true
     }
 

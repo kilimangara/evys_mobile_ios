@@ -19,5 +19,6 @@ class AuthModel: Codable {
         self.id = id
         self.token = token
         PersistenceManager.sharedInstance.saveToken(token: token)
+        APIProvider.sharedInstance.initProvider(token: token)
     }
 }

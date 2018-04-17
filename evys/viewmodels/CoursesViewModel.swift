@@ -9,12 +9,18 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import UIKit
 
-struct CoursesViewModel {
+class CoursesViewModel {
     
     var data: Driver<[Course]>
     
-    init(){
-        data = APIProvider.sharedInstance.getSubjects().asDriver(onErrorJustReturn: [])
+    init(refresh: UIRefreshControl){
+        let initial = APIProvider.sharedInstance.getSubjects()
+        let refreshable = refresh.rx.controlEvent(.valueChanged)
+                      .flatMap({_ in return APIProvider.sharedInstance.getSubjects()})
+                      .do(onNext:{_ in refresh.endRefreshing()})
+        data = Observable.of(initial, refreshable).merge().asDriver(onErrorJustReturn: [])
     }
+    
 }

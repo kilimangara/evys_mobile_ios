@@ -43,7 +43,6 @@ class CodeViewController: UIViewController {
     }
     
     private func onNextFired(value: AuthModel){
-        print(value.id, value.token, value.is_new)
         performSegue(withIdentifier: "mainAppFromLoginSegue", sender: self)
     }
     

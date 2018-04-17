@@ -10,33 +10,63 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+class CustomFlowLayout : UICollectionViewLayout {
+    var insertingIndexPaths = [IndexPath]()
+    
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        
+        insertingIndexPaths.removeAll()
+        
+        for update in updateItems {
+            if let indexPath = update.indexPathAfterUpdate,
+                update.updateAction == .insert {
+                insertingIndexPaths.append(indexPath)
+            }
+        }
+    }
+    
+    override func finalizeCollectionViewUpdates() {
+        super.finalizeCollectionViewUpdates()
+        
+        insertingIndexPaths.removeAll()
+    }
+    
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
+        
+        //if insertingIndexPaths.contains(itemIndexPath) {
+        attributes?.alpha = 0.0
+        attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        //attributes?.transform = CGAffineTransform(translationX: 0, y: 500.0)
+    
+        //}
+        
+        return attributes
+    }
+}
+
 class CoursesViewController: UIViewController {
     
     @IBOutlet weak var coursesCollectionView: UICollectionView!
     var coursesViewModel : CoursesViewModel?
+    var refreshControl : UIRefreshControl!
     
     let disposables = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        coursesViewModel = CoursesViewModel()
+        refreshControl = UIRefreshControl()
+        coursesViewModel = CoursesViewModel(refresh: refreshControl)
         if let viewModel = coursesViewModel {
+            coursesCollectionView.addSubview(refreshControl)
             viewModel.data.drive(coursesCollectionView.rx.items(cellIdentifier: "courseCell")) {
-                _, course, cell in
+                index, course, cell in
+                print(index)
                 if let courseCell = cell as? CourseTableViewCell{
                     courseCell.subjectNameLabel.text = course.subjectName
-                    courseCell.contentView.layer.cornerRadius = 4
-                    courseCell.contentView.layer.borderWidth = 1
-                    courseCell.contentView.layer.borderColor = UIColor.clear.cgColor
-                    courseCell.contentView.layer.masksToBounds = false
-                    courseCell.layer.shadowColor = UIColor.gray.cgColor
-                    courseCell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-                    courseCell.layer.shadowRadius = 4.0
-                    courseCell.layer.shadowOpacity = 1.0
-                    courseCell.layer.masksToBounds = false
-                    courseCell.layer.shadowPath = UIBezierPath(roundedRect: courseCell.bounds,
-                                                               cornerRadius: courseCell.contentView.layer.cornerRadius).cgPath
+                    courseCell.prepareView()
+                    courseCell.prepareForAppearance(boundsWidth: self.coursesCollectionView.bounds.width, index: index)
                 }
             }.disposed(by: self.disposables)
         }
