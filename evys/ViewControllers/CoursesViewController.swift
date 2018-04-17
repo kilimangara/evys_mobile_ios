@@ -56,15 +56,16 @@ class CoursesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         refreshControl = UIRefreshControl()
         coursesViewModel = CoursesViewModel(refresh: refreshControl)
         if let viewModel = coursesViewModel {
             coursesCollectionView.addSubview(refreshControl)
             viewModel.data.drive(coursesCollectionView.rx.items(cellIdentifier: "courseCell")) {
                 index, course, cell in
-                print(index)
                 if let courseCell = cell as? CourseTableViewCell{
-                    courseCell.subjectNameLabel.text = course.subjectName
+                    courseCell.setSubjectName(name: course.subjectName)
                     courseCell.prepareView()
                     courseCell.prepareForAppearance(boundsWidth: self.coursesCollectionView.bounds.width, index: index)
                 }
@@ -74,6 +75,10 @@ class CoursesViewController: UIViewController {
         coursesCollectionView.rx.modelSelected(Course.self).subscribe(onNext: {
             course in
             print(course.subjectName)
+            if let themeViewController = self.storyboard?.instantiateViewController(withIdentifier: "ThemesViewController") as? ThemesViewController {
+                themeViewController.courseModel = course
+                self.navigationController?.pushViewController(themeViewController, animated: true)
+            }
         }).disposed(by: self.disposables)
         
         // Do any additional setup after loading the view.
@@ -85,14 +90,6 @@ class CoursesViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

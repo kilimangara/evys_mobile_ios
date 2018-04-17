@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32F2DD56088BAA6E7C1B5493 /* Pods_evys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328DC2FFD1FACF0FE00B7DFB /* Pods_evys.framework */; };
+		3A0ADB062086B22F00A2A65C /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */; };
+		3A791C122086BB2400790251 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C112086BB2400790251 /* ThemeModel.swift */; };
 		3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148820816A2700BF1A3F /* AppDelegate.swift */; };
 		3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148A20816A2700BF1A3F /* ViewController.swift */; };
 		3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7148C20816A2700BF1A3F /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		328DC2FFD1FACF0FE00B7DFB /* Pods_evys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_evys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		3A791C112086BB2400790251 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
 		3AD7148520816A2700BF1A3F /* evys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD7148820816A2700BF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD7148A20816A2700BF1A3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			children = (
 				3AD714A32081AFC900BF1A3F /* AuthModel.swift */,
 				3AD714B02082ABEC00BF1A3F /* Course.swift */,
+				3A791C112086BB2400790251 /* ThemeModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				3AD714A92082252800BF1A3F /* LoginViewController.swift */,
 				3AD714AC20822F2C00BF1A3F /* CodeViewController.swift */,
 				3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */,
+				3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -304,9 +310,11 @@
 				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
 				3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */,
 				3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */,
+				3A0ADB062086B22F00A2A65C /* ThemesViewController.swift in Sources */,
 				3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */,
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
 				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
+				3A791C122086BB2400790251 /* ThemeModel.swift in Sources */,
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
 				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,

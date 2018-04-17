@@ -8,6 +8,7 @@ target 'evys' do
     pod 'RxCocoa',    '~> 4.0'
     pod 'Alamofire', '~> 4.7'
     pod 'LinearProgressBar'
+    pod 'AlamofireObjectMapper', '~> 5.0'
 
   # Pods for evys
 end

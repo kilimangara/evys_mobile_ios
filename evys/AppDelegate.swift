@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            self.window?.rootViewController = loginVC
         }
         UITabBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         self.window?.makeKeyAndVisible()
         return true

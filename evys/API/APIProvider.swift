@@ -107,4 +107,8 @@ class APIProvider {
             return Disposables.create()
         })
     }
+    
+    public func getThemes(courseId: Int){
+        
+    }
 }
