@@ -108,7 +108,38 @@ class APIProvider {
         })
     }
     
-    public func getThemes(courseId: Int){
-        
+    public func getThemes(courseId: Int) -> Observable<[ThemeModel]>{
+        let url = URL(string: self.BASE_URL + "student/course/\(courseId)/themes")
+        print(url!.absoluteString)
+        guard let unwrappedToken = self.token
+            else {return Observable.empty()}
+        let headers = [
+            "Authorization": "Student " + unwrappedToken
+        ]
+        return Observable.create({observer in
+            Alamofire.request(url!, method: .get, headers: headers).responseData {
+                response in
+                switch response.result {
+                case .success:
+                    let result = response.result
+                    do {
+                        let baseResponse = try JSONDecoder().decode(BaseResponse<[ThemeModel]>.self, from: result.value!)
+                        if let themes = baseResponse.data {
+                          observer.onNext(themes)
+                        }
+                        if let errors = baseResponse.error {
+                            print("onERROR", errors)
+                            
+                        }
+                    } catch(let error) {
+                        print("cant decode base response", error)
+                    }
+                case .failure(let error):
+                    print(error)
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        })
     }
 }

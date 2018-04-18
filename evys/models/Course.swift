@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Course {
     
     let type: String

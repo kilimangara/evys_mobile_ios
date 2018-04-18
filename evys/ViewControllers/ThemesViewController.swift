@@ -7,19 +7,42 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ThemesViewController: UIViewController {
     
     var courseModel: Course!
+    
+    var themesViewModel : ThemesViewModel?
+    var refreshControl : UIRefreshControl!
+    
+    let disposables = DisposeBag()
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.title = courseModel.subjectName
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white
-        ]
+        setupBar()
+        refreshControl = UIRefreshControl()
+        themesViewModel = ThemesViewModel(courseId: courseModel.id, refresh: refreshControl)
+        if let viewModel = themesViewModel {
+            collectionView.addSubview(refreshControl)
+            viewModel.data.drive(collectionView.rx.items(cellIdentifier: "themeCell")) {
+                index, theme, cell in
+                if let themeCell = cell as? ThemesCollectionViewCell{
+                    themeCell.setDynamicValues(themeModel: theme)
+                    themeCell.prepareView()
+                    themeCell.prepareForAppearance(boundsWidth: self.collectionView.bounds.width, index: index)
+                }
+            }.disposed(by: disposables)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func setupBar(){
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = courseModel.subjectName
     }
 
     override func didReceiveMemoryWarning() {

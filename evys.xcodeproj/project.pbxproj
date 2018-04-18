@@ -10,6 +10,11 @@
 		32F2DD56088BAA6E7C1B5493 /* Pods_evys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328DC2FFD1FACF0FE00B7DFB /* Pods_evys.framework */; };
 		3A0ADB062086B22F00A2A65C /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */; };
 		3A791C122086BB2400790251 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C112086BB2400790251 /* ThemeModel.swift */; };
+		3A791C9C20876DA400790251 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C9B20876DA400790251 /* ErrorModel.swift */; };
+		3A791C9E2087757800790251 /* ThemesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C9D2087757800790251 /* ThemesViewModel.swift */; };
+		3A791CA0208777B400790251 /* ThemesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C9F208777B400790251 /* ThemesCollectionViewCell.swift */; };
+		3A791CA220877D7200790251 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CA120877D7200790251 /* BaseResponse.swift */; };
+		3A791CA52087B64100790251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A791CA42087B64100790251 /* GoogleService-Info.plist */; };
 		3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148820816A2700BF1A3F /* AppDelegate.swift */; };
 		3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148A20816A2700BF1A3F /* ViewController.swift */; };
 		3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7148C20816A2700BF1A3F /* Main.storyboard */; };
@@ -31,6 +36,12 @@
 		328DC2FFD1FACF0FE00B7DFB /* Pods_evys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_evys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		3A791C112086BB2400790251 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		3A791C9B20876DA400790251 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		3A791C9D2087757800790251 /* ThemesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModel.swift; sourceTree = "<group>"; };
+		3A791C9F208777B400790251 /* ThemesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A791CA120877D7200790251 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		3A791CA42087B64100790251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A791CA62087B6A000790251 /* evys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = evys.entitlements; sourceTree = "<group>"; };
 		3AD7148520816A2700BF1A3F /* evys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD7148820816A2700BF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD7148A20816A2700BF1A3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +96,7 @@
 		3AD7148720816A2700BF1A3F /* evys */ = {
 			isa = PBXGroup;
 			children = (
+				3A791CA62087B6A000790251 /* evys.entitlements */,
 				3AD714B22082B02700BF1A3F /* tableViews */,
 				3AD714AB208228C100BF1A3F /* viewmodels */,
 				3AD714A6208223BF00BF1A3F /* ViewControllers */,
@@ -96,6 +108,7 @@
 				3AD7148C20816A2700BF1A3F /* Main.storyboard */,
 				3AD7149120816A2700BF1A3F /* LaunchScreen.storyboard */,
 				3AD7149420816A2700BF1A3F /* Info.plist */,
+				3A791CA42087B64100790251 /* GoogleService-Info.plist */,
 				3AD7149A20816D2700BF1A3F /* Assets.xcassets */,
 			);
 			path = evys;
@@ -115,6 +128,8 @@
 				3AD714A32081AFC900BF1A3F /* AuthModel.swift */,
 				3AD714B02082ABEC00BF1A3F /* Course.swift */,
 				3A791C112086BB2400790251 /* ThemeModel.swift */,
+				3A791C9B20876DA400790251 /* ErrorModel.swift */,
+				3A791CA120877D7200790251 /* BaseResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -143,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD714B52082B5F000BF1A3F /* CoursesViewModel.swift */,
+				3A791C9D2087757800790251 /* ThemesViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -151,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */,
+				3A791C9F208777B400790251 /* ThemesCollectionViewCell.swift */,
 			);
 			path = tableViews;
 			sourceTree = "<group>";
@@ -208,6 +225,11 @@
 					3AD7148420816A2700BF1A3F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -235,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AD7149320816A2700BF1A3F /* LaunchScreen.storyboard in Resources */,
+				3A791CA52087B64100790251 /* GoogleService-Info.plist in Resources */,
 				3AD7149B20816D2700BF1A3F /* Assets.xcassets in Resources */,
 				3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */,
 			);
@@ -284,16 +307,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-evys/Pods-evys-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LinearProgressBar/LinearProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -307,13 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A791C9C20876DA400790251 /* ErrorModel.swift in Sources */,
 				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
+				3A791C9E2087757800790251 /* ThemesViewModel.swift in Sources */,
 				3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */,
 				3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */,
 				3A0ADB062086B22F00A2A65C /* ThemesViewController.swift in Sources */,
 				3AD714A22081A03500BF1A3F /* APIProvider.swift in Sources */,
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
 				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
+				3A791CA220877D7200790251 /* BaseResponse.swift in Sources */,
 				3A791C122086BB2400790251 /* ThemeModel.swift in Sources */,
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
@@ -321,6 +353,7 @@
 				3AD714B62082B5F000BF1A3F /* CoursesViewModel.swift in Sources */,
 				3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */,
 				3AD714B42082B04E00BF1A3F /* CourseTableViewCell.swift in Sources */,
+				3A791CA0208777B400790251 /* ThemesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,11 +491,12 @@
 			baseConfigurationReference = A0E806F19B4824ED24853AE1 /* Pods-evys.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = evys/evys.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J75A93F8LK;
 				INFOPLIST_FILE = evys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ILS.evys;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.evys.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -474,11 +508,12 @@
 			baseConfigurationReference = 3E1773824D74F1A2A53E00BC /* Pods-evys.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = evys/evys.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J75A93F8LK;
 				INFOPLIST_FILE = evys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ILS.evys;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.evys.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
