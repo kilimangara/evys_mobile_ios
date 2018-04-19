@@ -9,42 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
-class CustomFlowLayout : UICollectionViewLayout {
-    var insertingIndexPaths = [IndexPath]()
-    
-    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
-        super.prepare(forCollectionViewUpdates: updateItems)
-        
-        insertingIndexPaths.removeAll()
-        
-        for update in updateItems {
-            if let indexPath = update.indexPathAfterUpdate,
-                update.updateAction == .insert {
-                insertingIndexPaths.append(indexPath)
-            }
-        }
-    }
-    
-    override func finalizeCollectionViewUpdates() {
-        super.finalizeCollectionViewUpdates()
-        
-        insertingIndexPaths.removeAll()
-    }
-    
-    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
-        
-        //if insertingIndexPaths.contains(itemIndexPath) {
-        attributes?.alpha = 0.0
-        attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        //attributes?.transform = CGAffineTransform(translationX: 0, y: 500.0)
-    
-        //}
-        
-        return attributes
-    }
-}
+import BusyNavigationBar
 
 class CoursesViewController: UIViewController {
     
@@ -56,10 +21,7 @@ class CoursesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white
-        ]
+        setupBar()
         navigationItem.largeTitleDisplayMode = .automatic
         refreshControl = UIRefreshControl()
         coursesViewModel = CoursesViewModel(refresh: refreshControl)
@@ -73,6 +35,23 @@ class CoursesViewController: UIViewController {
                     courseCell.prepareForAppearance(boundsWidth: self.coursesCollectionView.bounds.width, index: index)
                 }
             }.disposed(by: self.disposables)
+            
+            viewModel.data.asObservable().subscribe({
+                event in
+                switch event {
+                case .next(let courses):
+                    print("ONNEXT", courses)
+                    if courses.isEmpty {
+                        self.coursesCollectionView.setEmptyMessage("PRIVET PIDOR")
+                    } else {
+                        self.coursesCollectionView.restore()
+                    }
+                case .error(let error):
+                    print("ONERROR", error)
+                    self.coursesCollectionView.setEmptyMessage("PRIVET PIDOR")
+                case .completed: break
+                }
+            }).disposed(by: self.disposables)
         }
         
         coursesCollectionView.rx.modelSelected(Course.self).subscribe(onNext: {
@@ -92,7 +71,36 @@ class CoursesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupBar(){
+        let options = BusyNavigationBarOptions()
+        
+        /**
+         Animation type
+         
+         - Stripes: Sliding stripes as seen in Periscope app.
+         - Bars: Bars going up and down like a wave.
+         - CustomLayer(() -> CALayer): Your layer to be inserted in navigation bar. In this case, properties other than `transparentMaskEnabled` and `alpha` will not be used.
+         */
+        options.animationType = .stripes
+        
+        /// Color of the shapes. Defaults to gray.
+        options.color = UIColor.gray
+        
+        /// Alpha of the animation layer. Remember that there is also an additional (constant) gradient mask over the animation layer. Defaults to 0.5.
+        options.alpha = 1.0
+        
+        /// Width of the bar. Defaults to 20.
+        options.barWidth = 20
+        
+        /// Gap between bars. Defaults to 30.
+        options.gapWidth = 30
+        
+        /// Speed of the animation. 1 corresponds to 0.5 sec. Defaults to 1.
+        options.speed = 1
+        
+        /// Flag for enabling the transparent masking layer over the animation layer.
+        options.transparentMaskEnabled = true
 
-    // MARK: - Navigation
+    }
 
 }

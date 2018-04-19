@@ -37,6 +37,14 @@ class ThemesViewController: UIViewController {
                 }
             }.disposed(by: disposables)
         }
+        collectionView.rx.modelSelected(ThemeModel.self).subscribe(onNext: {
+            theme in
+            if let preTestViewController = self.storyboard?.instantiateViewController(withIdentifier: "PreTestViewController") as? PreTestViewController {
+                preTestViewController.theme = theme
+                self.navigationController?.pushViewController(preTestViewController, animated: true)
+            }
+        }).disposed(by: self.disposables)
+        
         // Do any additional setup after loading the view.
     }
     

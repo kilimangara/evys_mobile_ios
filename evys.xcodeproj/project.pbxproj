@@ -15,6 +15,8 @@
 		3A791CA0208777B400790251 /* ThemesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791C9F208777B400790251 /* ThemesCollectionViewCell.swift */; };
 		3A791CA220877D7200790251 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CA120877D7200790251 /* BaseResponse.swift */; };
 		3A791CA52087B64100790251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A791CA42087B64100790251 /* GoogleService-Info.plist */; };
+		3A791CF42089294C00790251 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CF32089294C00790251 /* CollectionViewExtension.swift */; };
+		3A791CF62089350E00790251 /* PreTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CF52089350E00790251 /* PreTestViewController.swift */; };
 		3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148820816A2700BF1A3F /* AppDelegate.swift */; };
 		3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148A20816A2700BF1A3F /* ViewController.swift */; };
 		3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7148C20816A2700BF1A3F /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		3A791CA120877D7200790251 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		3A791CA42087B64100790251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A791CA62087B6A000790251 /* evys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = evys.entitlements; sourceTree = "<group>"; };
+		3A791CF32089294C00790251 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
+		3A791CF52089350E00790251 /* PreTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTestViewController.swift; sourceTree = "<group>"; };
 		3AD7148520816A2700BF1A3F /* evys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD7148820816A2700BF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD7148A20816A2700BF1A3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A791CF22089292200790251 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A791CF32089294C00790251 /* CollectionViewExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		3AD7147C20816A2700BF1A3F = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				3A791CA62087B6A000790251 /* evys.entitlements */,
+				3A791CF22089292200790251 /* extensions */,
 				3AD714B22082B02700BF1A3F /* tableViews */,
 				3AD714AB208228C100BF1A3F /* viewmodels */,
 				3AD714A6208223BF00BF1A3F /* ViewControllers */,
@@ -150,6 +163,7 @@
 				3AD714AC20822F2C00BF1A3F /* CodeViewController.swift */,
 				3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */,
 				3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */,
+				3A791CF52089350E00790251 /* PreTestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -307,7 +321,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-evys/Pods-evys-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BusyNavigationBar/BusyNavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KDInteractiveNavigationController/KDInteractiveNavigationController.framework",
 				"${BUILT_PRODUCTS_DIR}/LinearProgressBar/LinearProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -317,7 +333,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BusyNavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDInteractiveNavigationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -338,6 +356,7 @@
 			files = (
 				3A791C9C20876DA400790251 /* ErrorModel.swift in Sources */,
 				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
+				3A791CF62089350E00790251 /* PreTestViewController.swift in Sources */,
 				3A791C9E2087757800790251 /* ThemesViewModel.swift in Sources */,
 				3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */,
 				3AD714B12082ABEC00BF1A3F /* Course.swift in Sources */,
@@ -347,6 +366,7 @@
 				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
 				3A791CA220877D7200790251 /* BaseResponse.swift in Sources */,
 				3A791C122086BB2400790251 /* ThemeModel.swift in Sources */,
+				3A791CF42089294C00790251 /* CollectionViewExtension.swift in Sources */,
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
 				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,

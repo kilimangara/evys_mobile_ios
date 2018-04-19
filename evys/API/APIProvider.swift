@@ -21,6 +21,8 @@ class APIProvider {
     
     private var token: String? = nil
     
+    public let actionSubject: PublishSubject<String> = PublishSubject.init()
+    
     func initProvider(token: String){
         self.token = token
     }
@@ -62,7 +64,7 @@ class APIProvider {
                         observer.onNext(AuthModel(is_new: is_new, id: id, token: token))
                     }
                 case .failure(let error):
-                    print(error)
+                    print(error, "ERRORR!!!")
                     observer.onError(error)
                 }
             }

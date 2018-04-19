@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.1)
+  - BusyNavigationBar (2.0.0)
   - Firebase/Core (4.13.0):
     - FirebaseAnalytics (= 4.2.0)
     - FirebaseCore (= 4.0.20)
@@ -26,6 +27,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/NSData+zlib (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
+  - KDInteractiveNavigationController (0.4)
   - LinearProgressBar (1.0.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -39,26 +41,30 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - BusyNavigationBar
   - Firebase/Core
   - Firebase/Messaging
+  - KDInteractiveNavigationController
   - LinearProgressBar
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  BusyNavigationBar: b73fd434b95f6198809dcf048b0245ad89ec1b37
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   FirebaseMessaging: 75cdb862e86c30e0913a2ff307e48d49357c5b73
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  KDInteractiveNavigationController: 7b4fa1a45e7b0a28a134372d48a3e67c23754b64
   LinearProgressBar: f6a74dbabed229dbb1a7978089e2e4317a3a0ee0
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
 
-PODFILE CHECKSUM: 2f38d2dbc05adea43f6d48c302a184c78aa1623c
+PODFILE CHECKSUM: 3d20adda2fe3e07ab3c82ad5aacf4dc577661c2f
 
 COCOAPODS: 1.3.1

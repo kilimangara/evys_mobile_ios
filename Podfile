@@ -10,6 +10,8 @@ target 'evys' do
     pod 'LinearProgressBar'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'KDInteractiveNavigationController'
+    pod 'BusyNavigationBar'
 
   # Pods for evys
 end
