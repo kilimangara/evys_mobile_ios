@@ -50,6 +50,9 @@ class PreTestViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.section)
         print(indexPath.row)
+        if let testViewController = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController {
+            self.navigationController?.pushViewController(testViewController, animated: true)
+        }
     }
 
     /*

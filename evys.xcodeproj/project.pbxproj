@@ -17,6 +17,11 @@
 		3A791CA52087B64100790251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A791CA42087B64100790251 /* GoogleService-Info.plist */; };
 		3A791CF42089294C00790251 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CF32089294C00790251 /* CollectionViewExtension.swift */; };
 		3A791CF62089350E00790251 /* PreTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CF52089350E00790251 /* PreTestViewController.swift */; };
+		3A791CFA2089641F00790251 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791CF92089641F00790251 /* TestViewController.swift */; };
+		3A791D01208965A200790251 /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D00208965A200790251 /* TestCardView.swift */; };
+		3A791D03208965C200790251 /* TestCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A791D02208965C200790251 /* TestCardView.xib */; };
+		3A791D0A208A2FE500790251 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D08208A2FE500790251 /* AnswerCollectionViewCell.swift */; };
+		3A791D0B208A2FE500790251 /* AnswerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A791D09208A2FE500790251 /* AnswerCollectionViewCell.xib */; };
 		3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148820816A2700BF1A3F /* AppDelegate.swift */; };
 		3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148A20816A2700BF1A3F /* ViewController.swift */; };
 		3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7148C20816A2700BF1A3F /* Main.storyboard */; };
@@ -46,6 +51,11 @@
 		3A791CA62087B6A000790251 /* evys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = evys.entitlements; sourceTree = "<group>"; };
 		3A791CF32089294C00790251 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		3A791CF52089350E00790251 /* PreTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTestViewController.swift; sourceTree = "<group>"; };
+		3A791CF92089641F00790251 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		3A791D00208965A200790251 /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
+		3A791D02208965C200790251 /* TestCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCardView.xib; sourceTree = "<group>"; };
+		3A791D08208A2FE500790251 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A791D09208A2FE500790251 /* AnswerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerCollectionViewCell.xib; sourceTree = "<group>"; };
 		3AD7148520816A2700BF1A3F /* evys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD7148820816A2700BF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD7148A20816A2700BF1A3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +97,15 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		3A791CFB2089644C00790251 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				3A791D00208965A200790251 /* TestCardView.swift */,
+				3A791D02208965C200790251 /* TestCardView.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		3AD7147C20816A2700BF1A3F = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 		3AD7148720816A2700BF1A3F /* evys */ = {
 			isa = PBXGroup;
 			children = (
+				3A791CFB2089644C00790251 /* views */,
 				3A791CA62087B6A000790251 /* evys.entitlements */,
 				3A791CF22089292200790251 /* extensions */,
 				3AD714B22082B02700BF1A3F /* tableViews */,
@@ -164,6 +184,7 @@
 				3AD714AE2082A9D300BF1A3F /* CoursesViewController.swift */,
 				3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */,
 				3A791CF52089350E00790251 /* PreTestViewController.swift */,
+				3A791CF92089641F00790251 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +203,8 @@
 			children = (
 				3AD714B32082B04E00BF1A3F /* CourseTableViewCell.swift */,
 				3A791C9F208777B400790251 /* ThemesCollectionViewCell.swift */,
+				3A791D08208A2FE500790251 /* AnswerCollectionViewCell.swift */,
+				3A791D09208A2FE500790251 /* AnswerCollectionViewCell.xib */,
 			);
 			path = tableViews;
 			sourceTree = "<group>";
@@ -270,9 +293,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A791D0B208A2FE500790251 /* AnswerCollectionViewCell.xib in Resources */,
 				3AD7149320816A2700BF1A3F /* LaunchScreen.storyboard in Resources */,
 				3A791CA52087B64100790251 /* GoogleService-Info.plist in Resources */,
 				3AD7149B20816D2700BF1A3F /* Assets.xcassets in Resources */,
+				3A791D03208965C200790251 /* TestCardView.xib in Resources */,
 				3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,8 +379,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A791D0A208A2FE500790251 /* AnswerCollectionViewCell.swift in Sources */,
 				3A791C9C20876DA400790251 /* ErrorModel.swift in Sources */,
 				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
+				3A791CFA2089641F00790251 /* TestViewController.swift in Sources */,
 				3A791CF62089350E00790251 /* PreTestViewController.swift in Sources */,
 				3A791C9E2087757800790251 /* ThemesViewModel.swift in Sources */,
 				3AD7149E20819BC300BF1A3F /* PersistenceManager.swift in Sources */,
@@ -365,6 +392,7 @@
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
 				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
 				3A791CA220877D7200790251 /* BaseResponse.swift in Sources */,
+				3A791D01208965A200790251 /* TestCardView.swift in Sources */,
 				3A791C122086BB2400790251 /* ThemeModel.swift in Sources */,
 				3A791CF42089294C00790251 /* CollectionViewExtension.swift in Sources */,
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
