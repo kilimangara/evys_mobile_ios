@@ -49,21 +49,22 @@ class CourseTableViewCell: UICollectionViewCell {
         shortSubjectLabel.text = String(name.prefix(1))
     }
     
+    func cellSelected() {
+        layer.transform = CATransform3DScale(layer.transform, 1.1, 1.1, 1)
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.layer.transform = CATransform3DIdentity
+        }, completion: nil)
+    }
+    
     func prepareView(){
         let randomIndex = Int(arc4random_uniform(UInt32(colorsArray.count)))
         labelBackground.backgroundColor = colorsArray[randomIndex]
         labelBackground.layer.cornerRadius = 24
-        contentView.layer.cornerRadius = 4
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.clear.cgColor
-        contentView.layer.masksToBounds = false
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0.3)
-        layer.shadowRadius = 4.0
-        layer.shadowOpacity = 0.5
+        layer.cornerRadius = 4
         layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds,
-                                        cornerRadius: contentView.layer.cornerRadius).cgPath
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.8
     }
 
 }

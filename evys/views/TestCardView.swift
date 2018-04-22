@@ -33,13 +33,10 @@ class TestCardView: UIView {
         rootView.layer.borderWidth = 1
         rootView.layer.borderColor = UIColor.clear.cgColor
         rootView.layer.masksToBounds = false
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0.3)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 0.5
         layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds,
-        cornerRadius: rootView.layer.cornerRadius).cgPath
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.8
     }
     
     private func commonInit(){

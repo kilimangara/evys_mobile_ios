@@ -49,16 +49,9 @@ class ThemesCollectionViewCell: UICollectionViewCell {
         let randomIndex = Int(arc4random_uniform(UInt32(colorsArray.count)))
         underLabelView.backgroundColor = colorsArray[randomIndex]
         underLabelView.layer.cornerRadius = 24
-        contentView.layer.cornerRadius = 4
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.clear.cgColor
-        contentView.layer.masksToBounds = false
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0.3)
-        layer.shadowRadius = 4.0
-        layer.shadowOpacity = 0.5
+        layer.cornerRadius = 4
         layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds,
-                                        cornerRadius: contentView.layer.cornerRadius).cgPath
-    }
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.8    }
 }

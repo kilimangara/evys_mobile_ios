@@ -85,7 +85,6 @@ class APIProvider {
                 switch response.result {
                 case .success:
                     let result = response.result
-                    print(result)
                     var courses = [Course]()
                     if let dict = result.value as? [String: AnyObject] {
                         guard let innerArr = dict["data"] as? [[String: AnyObject]]
@@ -112,7 +111,6 @@ class APIProvider {
     
     public func getThemes(courseId: Int) -> Observable<[ThemeModel]>{
         let url = URL(string: self.BASE_URL + "student/course/\(courseId)/themes")
-        print(url!.absoluteString)
         guard let unwrappedToken = self.token
             else {return Observable.empty()}
         let headers = [
@@ -142,6 +140,68 @@ class APIProvider {
                 }
             }
             return Disposables.create()
+        })
+    }
+    
+    public func generateTest(themeId: Int) -> Observable<Int>{
+        let url = URL(string: self.BASE_URL + "student/theme/\(themeId)/start_testing")
+        guard let unwrappedToken = self.token
+            else {return Observable.empty()}
+        let headers = [
+            "Authorization": "Student " + unwrappedToken
+        ]
+        return Observable.create({ observer in
+            Alamofire.request(url!, method: .get, headers: headers).responseJSON {
+                response in
+                switch response.result {
+                case .success:
+                    let result = response.result
+                    if let rootDict = result.value as? [String: AnyObject] {
+                        if let testBlockObj = rootDict["data"] as? [String: AnyObject] {
+                            guard tbId = testBlockObj["id"] as? Int else {return}
+                            observer.onNext(tbId)
+                        }
+                        if let errorObj = rootDict["error"] as? [String: AnyObject] {
+                            print(errorObj, "ERROR")
+                        }
+                    }
+                case .failure(let error):
+                    observr.onError(error)
+                }
+            }
+            return Disposable.create()
+        })
+    }
+    
+    public func getQuestion(themeId: Int, testBlockId: Int) -> Observable<TaskModel> {
+        let url = URL(string: self.BASE_URL + "student/theme/\(themeId)/question?test_block=\(testBlockId)")
+        guard let unwrappedToken = self.token
+            else {return Observable.empty()}
+        let headers = [
+            "Authorization": "Student " + unwrappedToken
+        ]
+        return Observable.create({ observer in
+            Alamofire.request(url!, method: .get, headers: headers).responseData{
+                response in
+                switch response.result {
+                case .success:
+                    let result = response.result
+                    do {
+                        baseResponse = try JSONDecoder().decode(BaseResponse<TaskModel>, from: result.value)
+                        if let task = baseResponse.data {
+                            observer.onNext(task)
+                        }
+                        if let errors = baseResponse.error {
+                            print("onERROR", errors)
+                        }
+                    } catch(let error) {
+                         print("cant decode base response", error)
+                    }
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposabel.create()
         })
     }
 }

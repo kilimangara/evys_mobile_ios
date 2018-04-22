@@ -63,6 +63,13 @@ class CoursesViewController: UIViewController {
             }
         }).disposed(by: self.disposables)
         
+        coursesCollectionView.rx.itemSelected.subscribe(onNext: {
+            indexPath in
+            if let courseCell = self.coursesCollectionView.cellForItem(at: indexPath) as? CourseTableViewCell {
+                courseCell.cellSelected()
+            }
+        }).disposed(by: self.disposables)
+        
         // Do any additional setup after loading the view.
     }
 
