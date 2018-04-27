@@ -48,10 +48,16 @@ class PreTestViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.section)
-        print(indexPath.row)
-        if let testViewController = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController {
-            self.navigationController?.pushViewController(testViewController, animated: true)
+        if indexPath.row == 0{
+            if let testViewController = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController {
+                testViewController.themeId = theme.id
+                self.navigationController?.pushViewController(testViewController, animated: true)
+            }
+        }
+        if indexPath.row == 1 {
+            if let theoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "YoutubeTheoryViewController") as? YouTubeTheoryViewController {
+                self.navigationController?.pushViewController(theoryViewController, animated: true)
+            }
         }
     }
 

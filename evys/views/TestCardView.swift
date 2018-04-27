@@ -17,6 +17,12 @@ class TestCardView: UIView {
     @IBOutlet weak var taskNameField: UITextField!
     @IBOutlet weak var collectionAnswerView: UICollectionView!
     
+    let disposables = DisposeBag()
+    
+    var timer = Timer()
+    
+    var timeSpent = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -49,13 +55,6 @@ class TestCardView: UIView {
         taskTextField.layer.cornerRadius = 5
         rootView.autoresizingMask = [.flexibleWidth, .flexibleWidth]
         collectionAnswerView.register(UINib(nibName:"AnswerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "answerCell")
-        Observable.just(["Первое", "Второе", "ТРЕТЬЕ", "ЧЕТВЕРТОЕ", "Первое", "Второе", "ТРЕТЬЕ", "ЧЕТВЕРТОЕ"]).asDriver(onErrorJustReturn: []).drive(collectionAnswerView.rx.items(cellIdentifier: "answerCell")) {
-            index, answer, cell in
-            if let answerCell = cell as? AnswerCollectionViewCell {
-                answerCell.answerLabel.text = answer
-                answerCell.prepareCell()
-            }
-        }
         let transform = CATransform3DIdentity
         let offsetPositioning = CGPoint(x: 0, y: rootView.bounds.height )
         layer.transform =  CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0)
@@ -63,14 +62,57 @@ class TestCardView: UIView {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
             self.layer.transform = CATransform3DIdentity
             self.layer.opacity = 1
-        }, completion: nil)
+        }, completion: {
+            ended in
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:             #selector(TestCardView.timeAdd) , userInfo: nil, repeats: true)
+        })
+    }
+    
+    @objc func timeAdd() {
+        timeSpent += 1
+    }
+    
+    func resetTime() {
+        timer.invalidate()
+        timeSpent = 0
+    }
+    
+    func passTestModel(taskModel: TaskModel, modelSelected: ((_ timeSpent: Int, _ answer: String) -> ())?){
+        taskTextField.text = taskModel.task
+        taskNameField.text = taskModel.name
+        Observable.just(taskModel.answers).asDriver(onErrorJustReturn:[]).drive(collectionAnswerView.rx.items(cellIdentifier: "answerCell")) {
+            index, answer, cell in
+            if let answerCell = cell as? AnswerCollectionViewCell {
+                answerCell.answerLabel.text = answer.content
+                answerCell.prepareCell()
+            }
+        }.disposed(by: disposables)
+        
+        collectionAnswerView.rx.modelSelected(AnswerModel.self).subscribe(onNext: {
+            answer in
+            print(self.timeSpent, answer.content)
+            if let callback = modelSelected {
+                self.resetTime()
+                callback(self.timeSpent, answer.content)
+            }
+        }).disposed(by: disposables)
     }
     
     public func rightAnswerAnimation(completionHandler: ((Bool) -> (Void))?) {
         let offsetPositioning = CGPoint(x: rootView.bounds.width, y: 0 )
         layer.transform =  CATransform3DIdentity
         layer.opacity = 1
-        UIView.animate(withDuration: 0.5, delay: 2, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.layer.transform = CATransform3DTranslate(CATransform3DIdentity, offsetPositioning.x, offsetPositioning.y, 0)
+            self.layer.opacity = 0
+        }, completion: completionHandler)
+    }
+    
+    public func incorrectAnswerAnimation(completionHandler: ((Bool) -> (Void))?) {
+        let offsetPositioning = CGPoint(x: -rootView.bounds.width, y: 0 )
+        layer.transform =  CATransform3DIdentity
+        layer.opacity = 1
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
             self.layer.transform = CATransform3DTranslate(CATransform3DIdentity, offsetPositioning.x, offsetPositioning.y, 0)
             self.layer.opacity = 0
         }, completion: completionHandler)

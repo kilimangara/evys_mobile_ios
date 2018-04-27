@@ -23,6 +23,9 @@
 		3A791D0A208A2FE500790251 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D08208A2FE500790251 /* AnswerCollectionViewCell.swift */; };
 		3A791D0B208A2FE500790251 /* AnswerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A791D09208A2FE500790251 /* AnswerCollectionViewCell.xib */; };
 		3A791D0D208C19D600790251 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D0C208C19D600790251 /* TaskModel.swift */; };
+		3A791D0F208D18D600790251 /* YouTubeTheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D0E208D18D600790251 /* YouTubeTheoryViewController.swift */; };
+		3A791D11208D248600790251 /* AnswerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D10208D248600790251 /* AnswerResponseModel.swift */; };
+		3A791D13208D277200790251 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791D12208D277200790251 /* TestViewModel.swift */; };
 		3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148820816A2700BF1A3F /* AppDelegate.swift */; };
 		3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7148A20816A2700BF1A3F /* ViewController.swift */; };
 		3AD7148E20816A2700BF1A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7148C20816A2700BF1A3F /* Main.storyboard */; };
@@ -58,6 +61,9 @@
 		3A791D08208A2FE500790251 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A791D09208A2FE500790251 /* AnswerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerCollectionViewCell.xib; sourceTree = "<group>"; };
 		3A791D0C208C19D600790251 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		3A791D0E208D18D600790251 /* YouTubeTheoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeTheoryViewController.swift; sourceTree = "<group>"; };
+		3A791D10208D248600790251 /* AnswerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerResponseModel.swift; sourceTree = "<group>"; };
+		3A791D12208D277200790251 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		3AD7148520816A2700BF1A3F /* evys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD7148820816A2700BF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD7148A20816A2700BF1A3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 				3A791C9B20876DA400790251 /* ErrorModel.swift */,
 				3A791CA120877D7200790251 /* BaseResponse.swift */,
 				3A791D0C208C19D600790251 /* TaskModel.swift */,
+				3A791D10208D248600790251 /* AnswerResponseModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				3A0ADB052086B22F00A2A65C /* ThemesViewController.swift */,
 				3A791CF52089350E00790251 /* PreTestViewController.swift */,
 				3A791CF92089641F00790251 /* TestViewController.swift */,
+				3A791D0E208D18D600790251 /* YouTubeTheoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			children = (
 				3AD714B52082B5F000BF1A3F /* CoursesViewModel.swift */,
 				3A791C9D2087757800790251 /* ThemesViewModel.swift */,
+				3A791D12208D277200790251 /* TestViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -356,6 +365,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -368,6 +378,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A791D0A208A2FE500790251 /* AnswerCollectionViewCell.swift in Sources */,
+				3A791D11208D248600790251 /* AnswerResponseModel.swift in Sources */,
 				3A791C9C20876DA400790251 /* ErrorModel.swift in Sources */,
 				3AD714AA2082252800BF1A3F /* LoginViewController.swift in Sources */,
 				3A791CFA2089641F00790251 /* TestViewController.swift in Sources */,
@@ -396,11 +408,13 @@
 				3AD7148B20816A2700BF1A3F /* ViewController.swift in Sources */,
 				3AD714A82082243000BF1A3F /* MainViewController.swift in Sources */,
 				3A791CA220877D7200790251 /* BaseResponse.swift in Sources */,
+				3A791D0F208D18D600790251 /* YouTubeTheoryViewController.swift in Sources */,
 				3A791D01208965A200790251 /* TestCardView.swift in Sources */,
 				3A791C122086BB2400790251 /* ThemeModel.swift in Sources */,
 				3A791CF42089294C00790251 /* CollectionViewExtension.swift in Sources */,
 				3AD714AD20822F2C00BF1A3F /* CodeViewController.swift in Sources */,
 				3AD7148920816A2700BF1A3F /* AppDelegate.swift in Sources */,
+				3A791D13208D277200790251 /* TestViewModel.swift in Sources */,
 				3AD714A42081AFC900BF1A3F /* AuthModel.swift in Sources */,
 				3AD714B62082B5F000BF1A3F /* CoursesViewModel.swift in Sources */,
 				3AD714AF2082A9D400BF1A3F /* CoursesViewController.swift in Sources */,

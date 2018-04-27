@@ -8,20 +8,17 @@
 
 import Foundation
 
-struct Course {
+struct Course: Decodable {
     
     let type: String
     let id: Int
     let progress: Int8
     let target: Int8
-    let subjectName: String
+    let subject: Subject
     
-    init(type: String, id: Int, progress: Int8, target: Int8, subjectName: String){
-        self.type = type
-        self.progress = progress
-        self.target = target
-        self.subjectName = subjectName
-        self.id = id
-    }
+}
+
+struct Subject: Decodable {
     
+    let subject: String
 }

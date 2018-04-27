@@ -30,7 +30,7 @@ class CoursesViewController: UIViewController {
             viewModel.data.drive(coursesCollectionView.rx.items(cellIdentifier: "courseCell")) {
                 index, course, cell in
                 if let courseCell = cell as? CourseTableViewCell{
-                    courseCell.setSubjectName(name: course.subjectName)
+                    courseCell.setSubjectName(name: course.subject.subject)
                     courseCell.prepareView()
                     courseCell.prepareForAppearance(boundsWidth: self.coursesCollectionView.bounds.width, index: index)
                 }
@@ -56,7 +56,6 @@ class CoursesViewController: UIViewController {
         
         coursesCollectionView.rx.modelSelected(Course.self).subscribe(onNext: {
             course in
-            print(course.subjectName)
             if let themeViewController = self.storyboard?.instantiateViewController(withIdentifier: "ThemesViewController") as? ThemesViewController {
                 themeViewController.courseModel = course
                 self.navigationController?.pushViewController(themeViewController, animated: true)

@@ -494,6 +494,7 @@
                     </tableView>
                     <connections>
                         <segue destination="RaL-g7-bEX" kind="show" id="ERU-Rj-SAR"/>
+                        <segue destination="Dah-hV-EW0" kind="show" id="MkX-i3-Hbv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ela-hW-bwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,6 +543,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWu-pg-ciP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4876" y="654.42278860569718"/>
+        </scene>
+        <!--You Tube Theory View Controller-->
+        <scene sceneID="ucw-KF-kBU">
+            <objects>
+                <viewController storyboardIdentifier="YoutubeTheoryViewController" id="Dah-hV-EW0" customClass="YouTubeTheoryViewController" customModule="evys" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bK9-Mz-n2f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6D-zM-vHp" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="16" y="225" width="343" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="hSR-Ks-YF9"/>
+                    </view>
+                    <connections>
+                        <outlet property="youtubePlayer" destination="y6D-zM-vHp" id="TFD-Cz-Z7r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wsZ-xk-JBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3893.5999999999999" y="1501.7991004497753"/>
         </scene>
     </scenes>
     <resources>

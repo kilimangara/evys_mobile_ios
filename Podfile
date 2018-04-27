@@ -12,6 +12,7 @@ target 'evys' do
     pod 'Firebase/Messaging'
     pod 'KDInteractiveNavigationController'
     pod 'BusyNavigationBar'
+    pod 'YouTubePlayer'
 
   # Pods for evys
 end

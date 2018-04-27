@@ -50,7 +50,7 @@ class ThemesViewController: UIViewController {
     
     func setupBar(){
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = courseModel.subjectName
+        navigationItem.title = courseModel.subject.subject
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,11 +11,14 @@ import Firebase
 import FirebaseMessaging
 import FirebaseInstanceID
 import UserNotifications
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
 
     var window: UIWindow?
+    
+    let disposeBag = DisposeBag()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -23,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        setupSubscribers(storyboard: storyboard)
         
         if let token = PersistenceManager.sharedInstance.getToken() {
            APIProvider.sharedInstance.initProvider(token: token)
@@ -91,6 +96,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         Messaging.messaging().delegate = self
         
+    }
+    
+    func setupSubscribers(storyboard: UIStoryboard){
+        APIProvider.sharedInstance.actionSubject.subscribe({
+            result in
+            switch result{
+            case .next(let apiError):
+                if apiError.statusCode == 401{
+                    print("APIERROR HERE")
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                    self.window?.rootViewController = loginVC
+                }
+            case .error(_):
+                break
+            case .completed:
+                break
+            }
+        })
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {

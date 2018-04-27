@@ -21,7 +21,7 @@ class APIProvider {
     
     private var token: String? = nil
     
-    public let actionSubject: PublishSubject<String> = PublishSubject.init()
+    public let actionSubject: PublishSubject<ErrorModel> = PublishSubject.init()
     
     func initProvider(token: String){
         self.token = token
@@ -29,7 +29,6 @@ class APIProvider {
     
     public func sendCode(phone: String) -> Observable<Void> {
         let url = URL(string: self.BASE_URL + "student/code")
-        print(url!)
         return Observable<Void>.create({observer in
             let parameters: Parameters = ["phone": phone]
             Alamofire.request(url!, method: .post, parameters: parameters).responseJSON{ response in
@@ -79,28 +78,23 @@ class APIProvider {
         let headers = [
             "Authorization": "Student " + unwrappedToken
         ]
-        print(headers)
         return Observable.create({ observer in
-            Alamofire.request(url!, method: .get, headers: headers).responseJSON { response in
+            Alamofire.request(url!, method: .get, headers: headers).responseData { response in
                 switch response.result {
                 case .success:
                     let result = response.result
-                    var courses = [Course]()
-                    if let dict = result.value as? [String: AnyObject] {
-                        guard let innerArr = dict["data"] as? [[String: AnyObject]]
-                            else {return}
-                        innerArr.forEach {
-                            item in
-                            guard let id = item["id"] as? Int,
-                                let type = item["type"] as? String,
-                                let target = item["target"] as? Int8,
-                                let progress = item["progress"] as? Int8,
-                                let subjectName = (item["subject"]!)["subject"] as? String
-                                else {return}
-                            courses.append(Course(type: type, id: id, progress: progress, target: target, subjectName: subjectName))
+                    do {
+                        let baseResponse = try JSONDecoder().decode(BaseResponse<[Course]>.self, from: result.value!)
+                        if let courses = baseResponse.data {
+                            observer.onNext(courses)
                         }
+                        if let errors = baseResponse.error {
+                            print("onERROR", errors)
+                            self.actionSubject.onNext(errors)
+                        }
+                    } catch(let error) {
+                        print("cant decode base response", error)
                     }
-                    observer.onNext(courses)
                 case .failure(let error):
                     observer.onError(error)
                 }
@@ -145,6 +139,7 @@ class APIProvider {
     
     public func generateTest(themeId: Int) -> Observable<Int>{
         let url = URL(string: self.BASE_URL + "student/theme/\(themeId)/start_testing")
+        print("GENERATETEST", url!)
         guard let unwrappedToken = self.token
             else {return Observable.empty()}
         let headers = [
@@ -156,20 +151,23 @@ class APIProvider {
                 switch response.result {
                 case .success:
                     let result = response.result
+                    print(result)
                     if let rootDict = result.value as? [String: AnyObject] {
                         if let testBlockObj = rootDict["data"] as? [String: AnyObject] {
-                            guard tbId = testBlockObj["id"] as? Int else {return}
-                            observer.onNext(tbId)
+                            if let tbId = testBlockObj["id"] as? Int{
+                                observer.onNext(tbId)
+                            }
                         }
                         if let errorObj = rootDict["error"] as? [String: AnyObject] {
                             print(errorObj, "ERROR")
                         }
                     }
                 case .failure(let error):
-                    observr.onError(error)
+                    print("generate test", error)
+                    observer.onError(error)
                 }
             }
-            return Disposable.create()
+            return Disposables.create()
         })
     }
     
@@ -187,7 +185,7 @@ class APIProvider {
                 case .success:
                     let result = response.result
                     do {
-                        baseResponse = try JSONDecoder().decode(BaseResponse<TaskModel>, from: result.value)
+                        let baseResponse = try JSONDecoder().decode(BaseResponse<TaskModel>.self, from: result.value!)
                         if let task = baseResponse.data {
                             observer.onNext(task)
                         }
@@ -198,10 +196,48 @@ class APIProvider {
                          print("cant decode base response", error)
                     }
                 case .failure(let error):
+                    print("get question", error)
                     observer.onError(error)
                 }
             }
-            return Disposabel.create()
+            return Disposables.create()
+        })
+    }
+    
+    public func answerQuestion(themeId: Int, testBlockId: Int, timeSpent: Int, answer: String) -> Observable<AnswerResponseModel> {
+        let url = URL(string: self.BASE_URL + "student/theme/\(themeId)/answer")
+        guard let unwrappedToken = self.token
+            else {return Observable.empty()}
+        let headers = [
+            "Authorization": "Student " + unwrappedToken
+        ]
+        let parameters: Parameters = [
+            "test_block": testBlockId,
+            "answer": answer,
+            "time_spent": timeSpent
+        ]
+        return Observable.create({ observer in
+            Alamofire.request(url!, method:.post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData {
+                response in
+                switch response.result {
+                case .success:
+                    let result = response.result
+                    do {
+                        let baseResponse = try JSONDecoder().decode(BaseResponse<AnswerResponseModel>.self, from: result.value!)
+                        if let task = baseResponse.data {
+                            observer.onNext(task)
+                        }
+                        if let errors = baseResponse.error {
+                            print("onERROR", errors)
+                        }
+                    } catch(let error) {
+                        print("cant decode base response", error)
+                    }
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
         })
     }
 }
